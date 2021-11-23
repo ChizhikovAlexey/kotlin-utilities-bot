@@ -28,7 +28,7 @@ interface TariffsRepository : CrudRepository<Tariff, Int> {
     @Query(
         """
             SELECT *
-            FROM tariffs
+            FROM tariff
             WHERE date <= :date
             ORDER BY date DESC
             LIMIT 1
