@@ -1,6 +1,5 @@
 package com.achizhikov.kotlinutilitiesbot
 
-import org.springframework.cache.annotation.Cacheable
 import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
@@ -9,7 +8,6 @@ import java.util.*
 
 @Repository
 interface UtilitiesDataRepository : CrudRepository<UtilitiesData, Int> {
-    @Cacheable("utilities_data")
     @Query(
         """
             SELECT *
@@ -24,7 +22,6 @@ interface UtilitiesDataRepository : CrudRepository<UtilitiesData, Int> {
 
 @Repository
 interface TariffsRepository : CrudRepository<Tariff, Int> {
-    @Cacheable("tariff")
     @Query(
         """
             SELECT *

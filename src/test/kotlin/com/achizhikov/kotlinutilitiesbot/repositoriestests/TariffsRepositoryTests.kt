@@ -13,8 +13,8 @@ class TariffsRepositoryTests {
     @Autowired
     private lateinit var tariffsRepository: TariffsRepository
 
-    private val firstDate = LocalDate.of(2020, 1,1)
-    private val secondDate = LocalDate.of(2020, 2,2)
+    private val firstDate = LocalDate.of(2020, 1, 1)
+    private val secondDate = LocalDate.of(2020, 2, 2)
     private val olderTariff = Tariff(null, firstDate, 1.1, 2.2, 3.3, 0.0)
     private val newerTariff = Tariff(null, firstDate, 1.1, 2.2, 3.3, 0.0)
 
