@@ -12,7 +12,7 @@
     <artifactId>kotlin-utilities-bot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>kotlin-utilities-bot</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Kotlin Utilities Bot</description>
     <properties>
         <java.version>11</java.version>
         <kotlin.version>1.6.0</kotlin.version>
