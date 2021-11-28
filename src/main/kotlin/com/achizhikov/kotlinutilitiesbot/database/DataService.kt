@@ -47,17 +47,6 @@ class DataService(
         }
     }
 
-    fun getAllUtilitiesData(): String {
-        return try {
-            val allData = utilitiesDataRepository.findAllByOrderByDateAsc()
-            if (allData.isEmpty()) return "Недостаточно данных :("
-            allData.stream().map(UtilitiesData::toUiString).collect(Collectors.joining("\n\n\n"))
-        } catch (exc: Exception) {
-            logger.error("Error while getting all utilities data!", exc)
-            "Неизвестная ошибка!"
-        }
-    }
-
     fun getAllReports(): List<Report> {
         val tariffsByDate = tariffsRepository.findAllByOrderByDateAsc()
         val utilitiesData = utilitiesDataRepository.findAllByOrderByDateAsc()
