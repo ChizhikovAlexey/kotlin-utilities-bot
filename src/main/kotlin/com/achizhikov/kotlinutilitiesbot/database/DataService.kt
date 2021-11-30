@@ -47,7 +47,7 @@ class DataService(
     }
 
     fun getAllReports(): List<Report> {
-        val tariffsByDate = tariffsRepository.findAllByOrderByDateAsc()
+        val tariffsByDate = tariffsRepository.findAllByOrderByDateDesc()
         val utilitiesData = utilitiesDataRepository.findAllByOrderByDateAsc()
         val reports = ArrayList<Report>()
         for (i in 0..utilitiesData.size - 2) {

@@ -15,5 +15,5 @@ interface UtilitiesDataRepository : CrudRepository<UtilitiesData, Int> {
 interface TariffsRepository : CrudRepository<Tariff, Int> {
     fun findTopByOrderByDateDesc(): Optional<Tariff>
 
-    fun findAllByOrderByDateAsc(): List<Tariff>
+    fun findAllByOrderByDateDesc(): List<Tariff>
 }
