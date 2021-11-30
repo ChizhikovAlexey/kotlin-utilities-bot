@@ -34,7 +34,7 @@ data class ShortReport(
         """.trimIndent().trimStart()
     }
 
-    private fun Double.roundToUi() = this.div(100).roundToInt().toDouble().times(100)
+    private fun Double.roundToUi() = this.times(100).roundToInt().toDouble().div(100)
 
 }
 
