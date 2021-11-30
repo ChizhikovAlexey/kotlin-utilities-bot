@@ -18,24 +18,21 @@ data class ShortReport(
     )
 
     fun toUiString(): String {
-        val electricityCost = (consumption.electricity * tariff.electricity!!).roundToUi()
-        val hotWaterCost = (consumption.hotWater * tariff.hotWater!!).roundToUi()
-        val coldWaterCost = (consumption.coldWater * tariff.coldWater!!).roundToUi()
-        val drainageCost = (consumption.drainage * tariff.drainage!!).roundToUi()
+        val electricityCost = (consumption.electricity * tariff.electricity!!)
+        val hotWaterCost = (consumption.hotWater * tariff.hotWater!!)
+        val coldWaterCost = (consumption.coldWater * tariff.coldWater!!)
+        val drainageCost = (consumption.drainage * tariff.drainage!!)
         val finalCost = electricityCost + hotWaterCost + coldWaterCost + drainageCost
         return """
         Короткий отчёт от $date:
         электроэнергия: ${consumption.electricity} x ${tariff.electricity} = $electricityCost₽
         горячая вода: ${consumption.hotWater} x ${tariff.hotWater} = $hotWaterCost₽
         холодная вода: ${consumption.coldWater} x ${tariff.coldWater} = $coldWaterCost₽
-        электроэнергия: ${consumption.drainage} x ${tariff.drainage} = $drainageCost₽
+        водоотведение: ${consumption.drainage} x ${tariff.drainage} = $drainageCost₽
         
         Итого: $finalCost₽
         """.trimIndent().trimStart()
     }
-
-    private fun Double.roundToUi() = this.times(100).roundToInt().toDouble().div(100)
-
 }
 
 data class Report(
