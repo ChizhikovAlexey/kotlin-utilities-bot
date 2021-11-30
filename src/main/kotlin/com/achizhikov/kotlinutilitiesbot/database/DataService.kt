@@ -5,7 +5,6 @@ import com.achizhikov.kotlinutilitiesbot.reports.ShortReport
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import java.time.LocalDate
-import java.util.stream.Collectors
 
 @Component
 class DataService(
