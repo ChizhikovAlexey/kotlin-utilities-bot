@@ -18,10 +18,10 @@ data class ShortReport(
     )
 
     fun toUiString(): String {
-        val electricityCost = (consumption.electricity * tariff.electricity!!).times(1000).roundToInt().div(1000)
-        val hotWaterCost = (consumption.hotWater * tariff.hotWater!!).times(1000).roundToInt().div(1000)
-        val coldWaterCost = (consumption.coldWater * tariff.coldWater!!).times(1000).roundToInt().div(1000)
-        val drainageCost = (consumption.drainage * tariff.drainage!!).times(1000).roundToInt().div(1000)
+        val electricityCost = (consumption.electricity * tariff.electricity!!).times(100).roundToInt().div(100)
+        val hotWaterCost = (consumption.hotWater * tariff.hotWater!!).times(100).roundToInt().div(100)
+        val coldWaterCost = (consumption.coldWater * tariff.coldWater!!).times(100).roundToInt().div(100)
+        val drainageCost = (consumption.drainage * tariff.drainage!!).times(100).roundToInt().div(100)
         val finalCost = electricityCost + hotWaterCost + coldWaterCost + drainageCost
         return """
         Короткий отчёт от $date:
