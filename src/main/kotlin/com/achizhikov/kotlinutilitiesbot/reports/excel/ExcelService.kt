@@ -18,7 +18,6 @@ fun createExcel(reports: List<Report>): File? {
 
     for ((index, report) in reports.withIndex()) {
         var rowNumber = index * 10
-        var rowNumberForFormulas = rowNumber + 1
         val prevData = report.olderData
         val newData = report.newerData
         val tariff = report.tariff
@@ -60,14 +59,13 @@ fun createExcel(reports: List<Report>): File? {
         seventhRow.createCell(0).setCellValue("водоотведение")
         seventhRow.createCell(3).setCellValue(drainage.toDouble())
         seventhRow.createCell(4).setCellValue(tariff.drainage)
-        seventhRow.createCell(5).cellFormula = "D${rowNumberForFormulas}*E${rowNumberForFormulas}"
+        seventhRow.createCell(5).cellFormula = "D${rowNumber + 1}*E${rowNumber + 1}"
         rowNumber++
-        rowNumberForFormulas++
 
         val eighthRow = sheet.createRow(rowNumber)
         eighthRow.createCell(4).setCellValue("итого:")
         eighthRow.createCell(5).cellFormula =
-            "TEXT(SUM(F${rowNumberForFormulas - 6}:F${rowNumberForFormulas - 1}), \"0,00\")"
+            "SUM(F${rowNumber - 5}:F${rowNumber})"
         eighthRow.createCell(6).setCellValue("₽")
     }
 
@@ -102,5 +100,3 @@ private fun XSSFSheet.fillDataRow(
     row.createCell(5).cellFormula = "D${rowNumber + 1}*E${rowNumber + 1}"
     return row
 }
-
-
