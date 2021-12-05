@@ -49,7 +49,7 @@ fun createExcel(reports: List<Report>): File? {
             rowNumber++, "[кухня] горячая вода", newData.kitchenHotWater, prevData.kitchenHotWater, tariff.hotWater
         )
         sheet.fillDataRow(
-            rowNumber++, "[кухня] холодная вода", newData.kitchenHotWater, prevData.kitchenHotWater, tariff.hotWater
+            rowNumber++, "[кухня] холодная вода", newData.kitchenColdWater, prevData.kitchenColdWater, tariff.coldWater
         )
 
         val seventhRow = sheet.createRow(rowNumber)
