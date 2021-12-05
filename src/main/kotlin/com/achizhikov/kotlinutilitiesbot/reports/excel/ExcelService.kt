@@ -40,9 +40,6 @@ fun createExcel(reports: List<Report>): File? {
         secondRow.createCell(6).setCellValue(newData.date)
         secondRow.getCell(6).cellStyle = dateCellStyle
         sheet.fillDataRow(
-            rowNumber++, "электроэнергия", newData.electricity, prevData.electricity, tariff.electricity
-        )
-        sheet.fillDataRow(
             rowNumber++, "[ванная] горячая вода", newData.bathHotWater, prevData.bathHotWater, tariff.hotWater
         )
         sheet.fillDataRow(
