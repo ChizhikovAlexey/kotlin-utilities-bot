@@ -11,15 +11,15 @@ data class ExtendedUtilitiesConsumption(
     val drainage: Int
 ) {
     constructor(newerData: UtilitiesData, olderData: UtilitiesData) : this(
-        newerData.electricity!! - olderData.electricity!!,
-        newerData.bathHotWater!! - olderData.bathHotWater!!,
-        newerData.bathColdWater!! - olderData.bathColdWater!!,
-        newerData.kitchenHotWater!! - olderData.kitchenHotWater!!,
-        newerData.kitchenColdWater!! - olderData.kitchenColdWater!!,
-        newerData.bathHotWater!! - olderData.bathHotWater!! +
-                newerData.bathColdWater!! - olderData.bathColdWater!! +
-                newerData.kitchenHotWater!! - olderData.kitchenHotWater!! +
-                newerData.kitchenColdWater!! - olderData.kitchenColdWater!!
+        newerData.electricity - olderData.electricity,
+        newerData.bathHotWater - olderData.bathHotWater,
+        newerData.bathColdWater - olderData.bathColdWater,
+        newerData.kitchenHotWater - olderData.kitchenHotWater,
+        newerData.kitchenColdWater - olderData.kitchenColdWater,
+        newerData.bathHotWater - olderData.bathHotWater +
+                newerData.bathColdWater - olderData.bathColdWater +
+                newerData.kitchenHotWater - olderData.kitchenHotWater +
+                newerData.kitchenColdWater - olderData.kitchenColdWater
     ) {
         val errorString = "Error while creating a UtilitiesConsumption instance " +
                 "using UtilitiesData's: newerData = $newerData, olderData = $olderData!"

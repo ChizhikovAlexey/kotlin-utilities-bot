@@ -53,9 +53,9 @@ class DataService(
         for (i in 0..utilitiesData.size - 2) {
             val prevData = utilitiesData[i]
             val nextData = utilitiesData[i + 1]
-            val date = nextData.date!!
+            val date = nextData.date
             val tariff = tariffsByDate.stream()
-                .filter { t -> t.date!! <= date }
+                .filter { t -> t.date <= date }
                 .findFirst()
                 .orElseThrow { IllegalStateException("No tariff for date $date") }
             reports.add(Report(date, nextData, prevData, tariff))
