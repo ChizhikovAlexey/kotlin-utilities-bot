@@ -26,10 +26,10 @@ data class ShortReport(
         val finalCost = (electricityCost + hotWaterCost + coldWaterCost + drainageCost).times(100).roundToInt().div(100.0)
         return """
         Короткий отчёт от $date:
-        электроэнергия: ${consumption.electricity} x ${tariff.electricity} = $electricityCost₽
-        горячая вода: ${consumption.hotWater} x ${tariff.hotWater} = $hotWaterCost₽
-        холодная вода: ${consumption.coldWater} x ${tariff.coldWater} = $coldWaterCost₽
-        водоотведение: ${consumption.drainage} x ${tariff.drainage} = $drainageCost₽
+        электроэнергия: ${consumption.electricity} x ${tariff.electricity} = $electricityCost ₽
+        горячая вода: ${consumption.hotWater} x ${tariff.hotWater} = $hotWaterCost ₽
+        холодная вода: ${consumption.coldWater} x ${tariff.coldWater} = $coldWaterCost ₽
+        водоотведение: ${consumption.drainage} x ${tariff.drainage} = $drainageCost ₽
         
         Итого: $finalCost₽
         """.trimIndent().trimStart()
