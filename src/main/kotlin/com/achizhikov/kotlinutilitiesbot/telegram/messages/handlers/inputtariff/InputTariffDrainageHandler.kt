@@ -22,9 +22,9 @@ class InputTariffDrainageHandler(val dataService: DataService) : Handler {
         val sendMessage = SendMessage.builder().chatId(update.message.chatId.toString())
         return try {
             val drainage = update.message.text.toDouble()
-            context.tariff.drainage = drainage
+            context.tariffBuilder.drainage = drainage
             context.state = State.MAIN
-            val uploaded = dataService.addTariff(context.tariff)
+            val uploaded = dataService.addTariff(context.tariffBuilder.build())
             if (uploaded != null) {
                 listOf(
                     sendMessage
@@ -36,7 +36,7 @@ class InputTariffDrainageHandler(val dataService: DataService) : Handler {
                 listOf(
                     sendMessage
                         .replyMarkup(DEFAULT_MARKUP)
-                        .text("Неизвестная ошибка!\nПытался загрузить ${context.utilitiesData.toUiString()}")
+                        .text("Неизвестная ошибка!\nПытался загрузить ${context.tariffBuilder}")
                         .build()
                 )
             }

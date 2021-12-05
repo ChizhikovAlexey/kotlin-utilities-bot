@@ -20,7 +20,7 @@ class InputUdElectricityHandler : Handler {
         val sendMessage = SendMessage.builder().chatId(update.message.chatId.toString())
         return try {
             val electricity = Integer.parseInt(update.message.text)
-            context.utilitiesData.electricity = electricity
+            context.utilitiesDataBuilder.electricity = electricity
             context.state = State.INPUT_UD_BHW
             listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Ванная: горячая вода").build())
         } catch (exc: NumberFormatException) {

@@ -20,7 +20,7 @@ class InputTariffColdWaterHandler : Handler {
         val sendMessage = SendMessage.builder().chatId(update.message.chatId.toString())
         return try {
             val coldWater = update.message.text.toDouble()
-            context.tariff.coldWater = coldWater
+            context.tariffBuilder.coldWater = coldWater
             context.state = State.INPUT_T_DRAINAGE
             listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Водоотведение").build())
         } catch (exc: NumberFormatException) {

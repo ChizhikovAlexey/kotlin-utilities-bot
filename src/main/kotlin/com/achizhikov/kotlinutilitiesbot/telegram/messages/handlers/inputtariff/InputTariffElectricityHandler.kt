@@ -20,7 +20,7 @@ class InputTariffElectricityHandler : Handler {
         val sendMessage = SendMessage.builder().chatId(update.message.chatId.toString())
         return try {
             val electricity = update.message.text.toDouble()
-            context.tariff.electricity = electricity
+            context.tariffBuilder.electricity = electricity
             context.state = State.INPUT_T_HW
             listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Горячая вода").build())
         } catch (exc: NumberFormatException) {

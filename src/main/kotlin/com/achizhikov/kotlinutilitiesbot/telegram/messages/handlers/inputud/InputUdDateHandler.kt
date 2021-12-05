@@ -23,13 +23,13 @@ class InputUdDateHandler : Handler {
         return when (val text = update.message.text) {
             "Сегодня" -> {
                 context.state = State.INPUT_UD_ELECTRICITY
-                context.utilitiesData.date = LocalDate.now()
+                context.utilitiesDataBuilder.date = LocalDate.now()
                 listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Электроэнергия").build())
             }
             else -> {
                 try {
                     context.state = State.INPUT_UD_ELECTRICITY
-                    context.utilitiesData.date = LocalDate.parse(text)
+                    context.utilitiesDataBuilder.date = LocalDate.parse(text)
                     listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Электроэнергия").build())
                 } catch (exc: DateTimeParseException) {
                     listOf(sendMessage.text("Неправильный формат даты").build())

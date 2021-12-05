@@ -20,7 +20,7 @@ class InputUdBathHotWaterHandler : Handler {
         val sendMessage = SendMessage.builder().chatId(update.message.chatId.toString())
         return try {
             val bathHotWater = Integer.parseInt(update.message.text)
-            context.utilitiesData.bathHotWater = bathHotWater
+            context.utilitiesDataBuilder.bathHotWater = bathHotWater
             context.state = State.INPUT_UD_BCW
             listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Ванная: холодная вода").build())
         } catch (exc: NumberFormatException) {

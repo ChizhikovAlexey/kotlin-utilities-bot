@@ -20,7 +20,7 @@ class InputUdKitchenHotWaterHandler : Handler {
         val sendMessage = SendMessage.builder().chatId(update.message.chatId.toString())
         return try {
             val kitchenHotWater = Integer.parseInt(update.message.text)
-            context.utilitiesData.kitchenHotWater = kitchenHotWater
+            context.utilitiesDataBuilder.kitchenHotWater = kitchenHotWater
             context.state = State.INPUT_UD_KCW
             listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Кухня: холодная вода").build())
         } catch (exc: NumberFormatException) {

@@ -20,7 +20,7 @@ class InputTariffHotWaterHandler : Handler {
         val sendMessage = SendMessage.builder().chatId(update.message.chatId.toString())
         return try {
             val hotWater = update.message.text.toDouble()
-            context.tariff.hotWater = hotWater
+            context.tariffBuilder.hotWater = hotWater
             context.state = State.INPUT_T_CW
             listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Холодная вода").build())
         } catch (exc: NumberFormatException) {

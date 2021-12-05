@@ -23,13 +23,13 @@ class InputTariffDateHandler : Handler {
         return when (val text = update.message.text) {
             "Сегодня" -> {
                 context.state = State.INPUT_T_ELECTRICITY
-                context.tariff.date = LocalDate.now()
+                context.tariffBuilder.date = LocalDate.now()
                 listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Электроэнергия").build())
             }
             else -> {
                 try {
                     context.state = State.INPUT_T_ELECTRICITY
-                    context.tariff.date = LocalDate.parse(text)
+                    context.tariffBuilder.date = LocalDate.parse(text)
                     listOf(sendMessage.replyMarkup(DEFAULT_MARKUP).text("Электроэнергия").build())
                 } catch (exc: DateTimeParseException) {
                     listOf(sendMessage.text("Неправильный формат даты").build())

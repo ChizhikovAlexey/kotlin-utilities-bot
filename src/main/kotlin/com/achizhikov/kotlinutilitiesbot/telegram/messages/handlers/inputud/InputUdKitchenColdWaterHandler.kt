@@ -22,9 +22,9 @@ class InputUdKitchenColdWaterHandler(val dataService: DataService) : Handler {
         val sendMessage = SendMessage.builder().chatId(update.message.chatId.toString())
         return try {
             val kitchenColdWater = Integer.parseInt(update.message.text)
-            context.utilitiesData.kitchenColdWater = kitchenColdWater
+            context.utilitiesDataBuilder.kitchenColdWater = kitchenColdWater
             context.state = State.MAIN
-            val uploaded = dataService.addUtilitiesData(context.utilitiesData)
+            val uploaded = dataService.addUtilitiesData(context.utilitiesDataBuilder.build())
             if (uploaded != null) {
                 listOf(
                     sendMessage
@@ -36,7 +36,7 @@ class InputUdKitchenColdWaterHandler(val dataService: DataService) : Handler {
                 listOf(
                     sendMessage
                         .replyMarkup(DEFAULT_MARKUP)
-                        .text("Неизвестная ошибка!\nПытался загрузить ${context.utilitiesData.toUiString()}")
+                        .text("Неизвестная ошибка!\nПытался загрузить ${context.utilitiesDataBuilder}")
                         .build()
                 )
             }
